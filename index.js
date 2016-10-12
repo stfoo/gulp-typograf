@@ -17,6 +17,11 @@ module.exports = function(opts) {
         }
 
         var typograf = new Typograf(opts);
+
+        opts.rules && opts.rules.forEach(function(rule) {
+            Typograf.rule(rule);
+        });
+
         opts.disable && typograf.disable(opts.disable);
         opts.enable && typograf.enable(opts.enable);
 
